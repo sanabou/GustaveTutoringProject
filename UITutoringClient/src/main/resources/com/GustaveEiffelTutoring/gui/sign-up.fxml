@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="399.0" prefWidth="626.0" style="-fx-background-color: #6495ED;" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.GustaveEiffelTutoring.gui.SignupController">
+   <children>
+      <BorderPane layoutX="45.0" layoutY="47.0" prefHeight="305.0" prefWidth="522.0">
+         <left>
+            <HBox prefHeight="314.0" prefWidth="223.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="317.0" fitWidth="229.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/img.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+         </left>
+         <right>
+            <HBox prefHeight="316.0" prefWidth="298.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+               <children>
+                  <SplitPane dividerPositions="0.2111842105263158" orientation="VERTICAL" prefHeight="306.0" prefWidth="297.0">
+                    <items>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="150.0" prefWidth="236.0" style="-fx-background-color: #D3D3D3;">
+                           <children>
+                              <ImageView cache="true" disable="true" fitHeight="34.0" fitWidth="156.0" layoutX="73.0" layoutY="14.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/img2.png" />
+                                 </image>
+                                 <cursor>
+                                    <Cursor fx:constant="W_RESIZE" />
+                                 </cursor>
+                                 <effect>
+                                    <ColorAdjust />
+                                 </effect>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="255.0" prefWidth="292.0" style="-fx-background-color: #D3D3D3;">
+                           <children>
+                              <Label layoutX="60.0" layoutY="6.0" prefHeight="31.0" prefWidth="207.0" text="Let's create your student account :" textAlignment="CENTER" textFill="#518bef">
+                                 <font>
+                                    <Font name="Segoe UI Black" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="34.0" layoutY="51.0" text="Full Name" textFill="#0b0d59">
+                                 <font>
+                                    <Font name="Segoe UI Semibold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="34.0" layoutY="117.0" text="Password" textFill="#10055e">
+                                 <font>
+                                    <Font name="Segoe UI Semibold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="tf_fullname" layoutX="112.0" layoutY="46.0" />
+                              <Button fx:id="signup_button" layoutX="93.0" layoutY="163.0" mnemonicParsing="false" onAction="#registration" prefHeight="34.0" prefWidth="110.0" style="-fx-background-radius: 40px; -fx-background-color: #6495ED;" text="Sign Up" textFill="WHITE">
+                                 <font>
+                                    <Font name="Segoe UI Black" size="14.0" />
+                                 </font>
+                              </Button>
+                              <Label layoutX="45.0" layoutY="197.0" prefHeight="31.0" prefWidth="158.0" text="Already have an account ?" textAlignment="CENTER" textFill="#012151">
+                                 <font>
+                                    <Font name="Segoe UI Semibold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="signin_link_btn" layoutX="193.0" layoutY="199.0" mnemonicParsing="false" onAction="#redirect_signin" style="-fx-background-color: Transparent;" text="Sign In" textFill="#5b8dfa" underline="true">
+                                 <font>
+                                    <Font name="Segoe UI Black" size="12.0" />
+                                 </font>
+                              </Button>
+                              <PasswordField fx:id="tf_password" layoutX="112.0" layoutY="113.0" />
+                              <Label layoutX="34.0" layoutY="85.0" text="Email" textFill="#0b0d59">
+                                 <font>
+                                    <Font name="Segoe UI Semibold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="tf_email" layoutX="112.0" layoutY="80.0" />
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
+               </children>
+            </HBox>
+         </right>
+      </BorderPane>
+   </children>
+</AnchorPane>

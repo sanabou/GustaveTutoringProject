@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #6495ED;" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.GustaveEiffelTutoring.gui.AppointmentStudentController">
+   <children>
+      <AnchorPane layoutX="53.0" layoutY="61.0" prefHeight="294.0" prefWidth="497.0" style="-fx-background-color: #D3D3D3;">
+         <children>
+            <Pane layoutY="-2.0" prefHeight="46.0" prefWidth="498.0" style="-fx-background-color: #708090;">
+               <children>
+                  <Label fx:id="welcome" layoutX="181.0" layoutY="15.0" text="Welcome " textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI Black" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="14.0" layoutY="6.0" text="Total Expenses" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI Black" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="expenses_label" layoutX="41.0" layoutY="24.0" textFill="WHITE" />
+               </children></Pane>
+            <Label layoutX="19.0" layoutY="47.0" text="Search by Name ">
+               <font>
+                  <Font name="Segoe UI Semibold" size="13.0" />
+               </font></Label>
+            <TextField fx:id="search_name" layoutX="17.0" layoutY="69.0" />
+            <Button fx:id="search_name_button" layoutX="173.0" layoutY="68.0" mnemonicParsing="false" onAction="#searchByName" prefHeight="26.0" prefWidth="68.0" style="-fx-background-color: #6495ED; -fx-background-radius: 30px;" text="Search" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI Black" size="12.0" />
+               </font>
+            </Button>
+            <Label layoutX="254.0" layoutY="47.0" text="Search by Expertise">
+               <font>
+                  <Font name="Segoe UI Semibold" size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="search_expertise" layoutX="254.0" layoutY="69.0" />
+            <Button fx:id="search_expertise_button" layoutX="414.0" layoutY="67.0" mnemonicParsing="false" onAction="#searchByExpertise" prefHeight="26.0" prefWidth="68.0" style="-fx-background-color: #6495ED; -fx-background-radius: 30px;" text="Search" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI Black" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="backButton" layoutX="423.0" layoutY="7.0" mnemonicParsing="false" onAction="#redirect_back" prefHeight="26.0" prefWidth="68.0" style="-fx-background-color: #8B0000; -fx-background-radius: 30px;" text="Back" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI" size="12.0" />
+               </font>
+            </Button>
+            <TableView fx:id="AppointmentsTable" layoutX="13.0" layoutY="105.0" prefHeight="179.0" prefWidth="474.0">
+              <columns>
+                <TableColumn fx:id="tutorName" prefWidth="132.20001220703125" text="Name" />
+                <TableColumn fx:id="AppointmentDate" prefWidth="75.79997253417969" text="Date" />
+                <TableColumn fx:id="AppointmentTime" prefWidth="87.00003051757812" text="Time" />
+                <TableColumn fx:id="AppointmentRate" prefWidth="75.79998779296875" text="Cost" />
+                <TableColumn fx:id="AppointmentStatus" prefWidth="106.4000244140625" text="Status" />
+              </columns>
+            </TableView>
+         </children></AnchorPane>
+   </children>
+</AnchorPane>

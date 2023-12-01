@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #6495ED;" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.GustaveEiffelTutoring.gui.LandingStudentController">
+   <children>
+      <AnchorPane layoutX="53.0" layoutY="61.0" prefHeight="294.0" prefWidth="497.0" style="-fx-background-color: #D3D3D3;">
+         <children>
+            <Pane layoutY="-2.0" prefHeight="46.0" prefWidth="498.0" style="-fx-background-color: #708090;">
+               <children>
+                  <Label fx:id="welcome" layoutX="181.0" layoutY="15.0" text="Welcome " textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI Black" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="14.0" layoutY="6.0" text="Total Expenses" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI Black" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="expenses_label" layoutX="41.0" layoutY="24.0" textFill="WHITE" />
+               </children></Pane>
+            <Label layoutX="19.0" layoutY="47.0" text="Search by Name ">
+               <font>
+                  <Font name="Segoe UI Semibold" size="13.0" />
+               </font></Label>
+            <TextField fx:id="search_name" layoutX="17.0" layoutY="69.0" />
+            <Button fx:id="search_name_button" layoutX="173.0" layoutY="68.0" mnemonicParsing="false" onAction="#searchByName" prefHeight="26.0" prefWidth="68.0" style="-fx-background-color: #6495ED; -fx-background-radius: 30px;" text="Search" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI Black" size="12.0" />
+               </font>
+            </Button>
+            <Label layoutX="254.0" layoutY="47.0" text="Search by Expertise">
+               <font>
+                  <Font name="Segoe UI Semibold" size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="search_expertise" layoutX="254.0" layoutY="69.0" />
+            <Button fx:id="search_expertise_button" layoutX="414.0" layoutY="67.0" mnemonicParsing="false" onAction="#searchByExpertise" prefHeight="26.0" prefWidth="68.0" style="-fx-background-color: #6495ED; -fx-background-radius: 30px;" text="Search" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI Black" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="appointments" layoutX="390.0" layoutY="7.0" mnemonicParsing="false" onAction="#displayAppointments" prefHeight="26.0" prefWidth="100.0" style="-fx-background-color: #8B0000; -fx-background-radius: 30px;" text="Appointments" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI" size="12.0" />
+               </font>
+            </Button>
+            <TableView fx:id="tutorsTable" layoutX="13.0" layoutY="105.0" prefHeight="150.0" prefWidth="474.0">
+              <columns>
+                <TableColumn fx:id="tutorName" prefWidth="75.0" text="Name" />
+                <TableColumn fx:id="tutorEmail" prefWidth="75.0" text="Email" />
+                <TableColumn fx:id="tutorExpertises" prefWidth="114.20002746582031" text="Expertises" />
+                <TableColumn fx:id="tutorSlots" prefWidth="148.199951171875" text="Time Slots" />
+                <TableColumn fx:id="tutorRate" prefWidth="62.20001220703125" text="Rate" />
+              </columns>
+            </TableView>
+            <Button fx:id="makeApp_btn" layoutX="356.0" layoutY="261.0" mnemonicParsing="false" onAction="#makeAppointment" style="-fx-background-color: #6495ED; -fx-background-radius: 30px;" text="Make Appointment" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI Black" size="12.0" />
+               </font>
+            </Button>
+         </children></AnchorPane>
+      <Button fx:id="logout" layoutX="7.0" layoutY="364.0" mnemonicParsing="false" onAction="#logout" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fitHeight="31.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/logout.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>

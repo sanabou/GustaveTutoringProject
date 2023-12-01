@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #6495ED;" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.GustaveEiffelTutoring.gui.ProfileMentorController">
+   <children>
+      <AnchorPane layoutX="41.0" layoutY="46.0" prefHeight="309.0" prefWidth="517.0" style="-fx-background-color: #D3D3D3;">
+         <children>
+            <HBox layoutY="-1.0" prefHeight="318.0" prefWidth="235.0">
+               <children>
+                  <Pane prefHeight="318.0" prefWidth="237.0">
+                     <children>
+                        <ImageView fitHeight="318.0" fitWidth="221.0" layoutX="-2.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/img_5.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+               </children>
+            </HBox>
+            <HBox layoutX="220.0" prefHeight="318.0" prefWidth="297.0">
+               <children>
+                  <Pane prefHeight="318.0" prefWidth="296.0">
+                     <children>
+                        <Label layoutX="85.0" layoutY="6.0" text="Complete your profile">
+                           <font>
+                              <Font name="Segoe UI Black" size="12.0" />
+                           </font></Label>
+                        <Label layoutX="11.0" layoutY="43.0" text="Expertises*">
+                           <font>
+                              <Font name="Segoe UI Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <TextArea fx:id="tf_expertise" layoutX="74.0" layoutY="43.0" prefHeight="63.0" prefWidth="207.0" />
+                        <Label layoutX="12.0" layoutY="142.0" text="Available Slot 1*">
+                           <font>
+                              <Font name="Segoe UI Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="11.0" layoutY="172.0" text="Available Slot 2">
+                           <font>
+                              <Font name="Segoe UI Semibold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="11.0" layoutY="201.0" text="Available Slot 3">
+                           <font>
+                              <Font name="Segoe UI Semibold" size="12.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="ts_dateslot1" layoutX="109.0" layoutY="138.0" prefHeight="25.0" prefWidth="97.0" />
+                        <TextField fx:id="tf_dateslot2" layoutX="110.0" layoutY="168.0" prefHeight="25.0" prefWidth="97.0" />
+                        <TextField fx:id="tf_dateslot3" layoutX="109.0" layoutY="198.0" prefHeight="25.0" prefWidth="97.0" />
+                        <TextField fx:id="tf_timeslot1" layoutX="221.0" layoutY="138.0" prefHeight="25.0" prefWidth="56.0" />
+                        <TextField fx:id="tf_timeslot2" layoutX="221.0" layoutY="168.0" prefHeight="25.0" prefWidth="56.0" />
+                        <TextField fx:id="tf_timeslot3" layoutX="221.0" layoutY="198.0" prefHeight="25.0" prefWidth="56.0" />
+                        <Label layoutX="145.0" layoutY="115.0" text="Date">
+                           <font>
+                              <Font name="Segoe UI Black" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="234.0" layoutY="115.0" text="Time">
+                           <font>
+                              <Font name="Segoe UI Black" size="12.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="save_profile_button" layoutX="114.0" layoutY="272.0" mnemonicParsing="false" onAction="#update_profile" prefHeight="32.0" prefWidth="87.0" style="-fx-background-radius: 40px; -fx-background-color: #6495ED;" text="Save" textFill="WHITE">
+                           <font>
+                              <Font name="Segoe UI Black" size="12.0" />
+                           </font>
+                        </Button>
+                        <Label layoutX="12.0" layoutY="238.0" text="Rate*">
+                           <font>
+                              <Font name="Segoe UI Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="tf_rate" layoutX="45.0" layoutY="236.0" prefHeight="25.0" prefWidth="97.0" />
+                        <Label layoutX="10.0" layoutY="58.0" text="Comma-separated" textFill="#d41515">
+                           <font>
+                              <Font name="System Bold" size="7.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="138.0" layoutY="129.0" text="yyyy-MM-dd" textFill="#d41515">
+                           <font>
+                              <Font name="Arial Bold" size="7.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="237.0" layoutY="129.0" text="HH:mm" textFill="#d41515">
+                           <font>
+                              <Font name="Arial Bold" size="7.0" />
+                           </font></Label>
+                     </children>
+                  </Pane>
+               </children></HBox>
+         </children></AnchorPane>
+   </children>
+</AnchorPane>
