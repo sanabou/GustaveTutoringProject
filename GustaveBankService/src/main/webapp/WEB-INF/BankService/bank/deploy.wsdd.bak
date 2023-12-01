@@ -1,0 +1,61 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from BankService WSDL service -->
+
+  <service name="Bank" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://bank"/>
+      <parameter name="wsdlServiceElement" value="BankService"/>
+      <parameter name="schemaQualified" value="http://bank"/>
+      <parameter name="wsdlServicePort" value="Bank"/>
+      <parameter name="className" value="bank.BankSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="Bank"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="getCustomers" qname="operNS:getCustomers" xmlns:operNS="http://bank" returnQName="retNS:getCustomersReturn" xmlns:retNS="http://bank" returnType="rtns:Customer" xmlns:rtns="http://bank" soapAction="" >
+      </operation>
+      <operation name="generateRIB" qname="operNS:generateRIB" xmlns:operNS="http://bank" returnQName="retNS:generateRIBReturn" xmlns:retNS="http://bank" returnType="rtns:long" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      </operation>
+      <operation name="virement" qname="operNS:virement" xmlns:operNS="http://bank" soapAction="" >
+        <parameter qname="pns:fromRib" xmlns:pns="http://bank" type="tns:long" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:toRib" xmlns:pns="http://bank" type="tns:long" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:amount" xmlns:pns="http://bank" type="tns:double" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getBalance" qname="operNS:getBalance" xmlns:operNS="http://bank" returnQName="retNS:getBalanceReturn" xmlns:retNS="http://bank" returnType="rtns:double" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:rib" xmlns:pns="http://bank" type="tns:long" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="currencyConversion" qname="operNS:currencyConversion" xmlns:operNS="http://bank" returnQName="retNS:currencyConversionReturn" xmlns:retNS="http://bank" returnType="rtns:double" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:amount" xmlns:pns="http://bank" type="tns:double" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:from" xmlns:pns="http://bank" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:to" xmlns:pns="http://bank" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="newAccount" qname="operNS:newAccount" xmlns:operNS="http://bank" soapAction="" >
+        <parameter qname="pns:name" xmlns:pns="http://bank" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:balance" xmlns:pns="http://bank" type="tns:double" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:currency" xmlns:pns="http://bank" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="printCustomers" qname="operNS:printCustomers" xmlns:operNS="http://bank" soapAction="" >
+      </operation>
+      <operation name="retrieveCustomerByName" qname="operNS:retrieveCustomerByName" xmlns:operNS="http://bank" returnQName="retNS:retrieveCustomerByNameReturn" xmlns:retNS="http://bank" returnType="rtns:Customer" xmlns:rtns="http://bank" soapAction="" >
+        <parameter qname="pns:name" xmlns:pns="http://bank" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="printCustomers getBalance getCustomers virement retrieveCustomerByName newAccount generateRIB currencyConversion"/>
+
+      <typeMapping
+        xmlns:ns="http://bank"
+        qname="ns:Customer"
+        type="java:bank.Customer"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+  </service>
+</deployment>

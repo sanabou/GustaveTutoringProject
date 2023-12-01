@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from StudentsListService WSDL service -->
+
+  <service name="StudentsList" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://externStudent"/>
+      <parameter name="wsdlServiceElement" value="StudentsListService"/>
+      <parameter name="schemaQualified" value="http://externStudent"/>
+      <parameter name="wsdlServicePort" value="StudentsList"/>
+      <parameter name="className" value="externStudent.StudentsList"/>
+      <parameter name="wsdlPortType" value="StudentsList"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://externStudent" xmlns:retNS="http://externStudent" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="studentRegistered" qname="operNS:studentRegistered" returnQName="retNS:studentRegisteredReturn" returnType="rtns:boolean" soapAction="">
+        <parameter xmlns:pns="http://externStudent" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:email" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://externStudent" xmlns:retNS="http://externStudent" xmlns:rtns="http://externStudent" name="getAllStudents" qname="operNS:getAllStudents" returnQName="retNS:getAllStudentsReturn" returnType="rtns:Student" soapAction="">
+      </operation>
+      <operation xmlns:operNS="http://externStudent" xmlns:retNS="http://externStudent" xmlns:rtns="http://externStudent" name="searchStudentByID" qname="operNS:searchStudentByID" returnQName="retNS:searchStudentByIDReturn" returnType="rtns:Student" soapAction="">
+        <parameter xmlns:pns="http://externStudent" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:id" type="tns:int"/>
+      </operation>
+      <operation xmlns:operNS="http://externStudent" xmlns:retNS="http://externStudent" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="dynamicStudentsRegistration" qname="operNS:dynamicStudentsRegistration" returnQName="retNS:dynamicStudentsRegistrationReturn" returnType="rtns:boolean" soapAction="">
+        <parameter xmlns:pns="http://externStudent" xmlns:tns="http://externStudent" qname="pns:student" type="tns:Student"/>
+      </operation>
+      <operation xmlns:operNS="http://externStudent" xmlns:retNS="http://externStudent" xmlns:rtns="http://externStudent" name="searchStudentByEmail" qname="operNS:searchStudentByEmail" returnQName="retNS:searchStudentByEmailReturn" returnType="rtns:Student" soapAction="">
+        <parameter xmlns:pns="http://externStudent" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:email" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://externStudent" xmlns:retNS="http://externStudent" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="staticStudentsRegistration" qname="operNS:staticStudentsRegistration" returnQName="retNS:staticStudentsRegistrationReturn" returnType="rtns:boolean" soapAction="">
+        <parameter xmlns:pns="http://externStudent" xmlns:tns="http://externStudent" qname="pns:student" type="tns:Student"/>
+      </operation>
+      <operation xmlns:operNS="http://externStudent" xmlns:retNS="http://externStudent" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getId" qname="operNS:getId" returnQName="retNS:getIdReturn" returnType="rtns:int" soapAction="">
+      </operation>
+      <operation xmlns:operNS="http://externStudent" name="setId" qname="operNS:setId" soapAction="">
+        <parameter xmlns:pns="http://externStudent" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:id" type="tns:int"/>
+      </operation>
+      <parameter name="allowedMethods" value="getAllStudents staticStudentsRegistration setId searchStudentByID getId studentRegistered dynamicStudentsRegistration searchStudentByEmail"/>
+
+      <typeMapping xmlns:ns="http://externStudent" qname="ns:Student" type="java:externStudent.Student" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+  </service>
+</deployment>

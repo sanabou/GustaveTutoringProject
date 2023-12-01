@@ -1,0 +1,509 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://externStudent" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://externStudent" xmlns:intf="http://externStudent" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://externStudent" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="studentRegistered">
+    <complexType>
+     <sequence>
+      <element name="email" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="studentRegisteredResponse">
+    <complexType>
+     <sequence>
+      <element name="studentRegisteredReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getAllStudents">
+    <complexType/>
+   </element>
+   <element name="getAllStudentsResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="getAllStudentsReturn" type="impl:Student"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="Student">
+    <sequence>
+     <element name="email" nillable="true" type="xsd:string"/>
+     <element name="idStudent" type="xsd:int"/>
+     <element name="name" nillable="true" type="xsd:string"/>
+     <element name="nature" nillable="true" type="xsd:string"/>
+     <element name="password" nillable="true" type="xsd:string"/>
+     <element name="preferredCurrency" nillable="true" type="xsd:string"/>
+     <element name="totalExpenses" type="xsd:double"/>
+    </sequence>
+   </complexType>
+   <element name="searchStudentByID">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchStudentByIDResponse">
+    <complexType>
+     <sequence>
+      <element name="searchStudentByIDReturn" type="impl:Student"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="dynamicStudentsRegistration">
+    <complexType>
+     <sequence>
+      <element name="student" type="impl:Student"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="dynamicStudentsRegistrationResponse">
+    <complexType>
+     <sequence>
+      <element name="dynamicStudentsRegistrationReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchStudentByEmail">
+    <complexType>
+     <sequence>
+      <element name="email" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchStudentByEmailResponse">
+    <complexType>
+     <sequence>
+      <element name="searchStudentByEmailReturn" type="impl:Student"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="staticStudentsRegistration">
+    <complexType>
+     <sequence>
+      <element name="student" type="impl:Student"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="staticStudentsRegistrationResponse">
+    <complexType>
+     <sequence>
+      <element name="staticStudentsRegistrationReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getId">
+    <complexType/>
+   </element>
+   <element name="getIdResponse">
+    <complexType>
+     <sequence>
+      <element name="getIdReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="setId">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="setIdResponse">
+    <complexType/>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="searchStudentByEmailRequest">
+
+      <wsdl:part element="impl:searchStudentByEmail" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="studentRegisteredRequest">
+
+      <wsdl:part element="impl:studentRegistered" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="dynamicStudentsRegistrationResponse">
+
+      <wsdl:part element="impl:dynamicStudentsRegistrationResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getIdRequest">
+
+      <wsdl:part element="impl:getId" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setIdResponse">
+
+      <wsdl:part element="impl:setIdResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getAllStudentsResponse">
+
+      <wsdl:part element="impl:getAllStudentsResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="studentRegisteredResponse">
+
+      <wsdl:part element="impl:studentRegisteredResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getAllStudentsRequest">
+
+      <wsdl:part element="impl:getAllStudents" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="staticStudentsRegistrationResponse">
+
+      <wsdl:part element="impl:staticStudentsRegistrationResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchStudentByIDResponse">
+
+      <wsdl:part element="impl:searchStudentByIDResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchStudentByEmailResponse">
+
+      <wsdl:part element="impl:searchStudentByEmailResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchStudentByIDRequest">
+
+      <wsdl:part element="impl:searchStudentByID" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getIdResponse">
+
+      <wsdl:part element="impl:getIdResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setIdRequest">
+
+      <wsdl:part element="impl:setId" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="dynamicStudentsRegistrationRequest">
+
+      <wsdl:part element="impl:dynamicStudentsRegistration" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="staticStudentsRegistrationRequest">
+
+      <wsdl:part element="impl:staticStudentsRegistration" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="StudentsList">
+
+      <wsdl:operation name="studentRegistered">
+
+         <wsdl:input message="impl:studentRegisteredRequest" name="studentRegisteredRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:studentRegisteredResponse" name="studentRegisteredResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getAllStudents">
+
+         <wsdl:input message="impl:getAllStudentsRequest" name="getAllStudentsRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getAllStudentsResponse" name="getAllStudentsResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchStudentByID">
+
+         <wsdl:input message="impl:searchStudentByIDRequest" name="searchStudentByIDRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:searchStudentByIDResponse" name="searchStudentByIDResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="dynamicStudentsRegistration">
+
+         <wsdl:input message="impl:dynamicStudentsRegistrationRequest" name="dynamicStudentsRegistrationRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:dynamicStudentsRegistrationResponse" name="dynamicStudentsRegistrationResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchStudentByEmail">
+
+         <wsdl:input message="impl:searchStudentByEmailRequest" name="searchStudentByEmailRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:searchStudentByEmailResponse" name="searchStudentByEmailResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="staticStudentsRegistration">
+
+         <wsdl:input message="impl:staticStudentsRegistrationRequest" name="staticStudentsRegistrationRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:staticStudentsRegistrationResponse" name="staticStudentsRegistrationResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getId">
+
+         <wsdl:input message="impl:getIdRequest" name="getIdRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getIdResponse" name="getIdResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setId">
+
+         <wsdl:input message="impl:setIdRequest" name="setIdRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:setIdResponse" name="setIdResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="StudentsListSoapBinding" type="impl:StudentsList">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="studentRegistered">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="studentRegisteredRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="studentRegisteredResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getAllStudents">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getAllStudentsRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getAllStudentsResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchStudentByID">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="searchStudentByIDRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="searchStudentByIDResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="dynamicStudentsRegistration">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="dynamicStudentsRegistrationRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="dynamicStudentsRegistrationResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchStudentByEmail">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="searchStudentByEmailRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="searchStudentByEmailResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="staticStudentsRegistration">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="staticStudentsRegistrationRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="staticStudentsRegistrationResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getId">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getIdRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getIdResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setId">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="setIdRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="setIdResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="StudentsListService">
+
+      <wsdl:port binding="impl:StudentsListSoapBinding" name="StudentsList">
+
+         <wsdlsoap:address location="http://localhost:8082/GustaveWebStudent/services/StudentsList"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

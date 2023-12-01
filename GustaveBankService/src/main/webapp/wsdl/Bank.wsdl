@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://bank" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://bank" xmlns:intf="http://bank" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://bank" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="getCustomers">
+    <complexType/>
+   </element>
+   <element name="getCustomersResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="getCustomersReturn" type="impl:Customer"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="Customer">
+    <sequence>
+     <element name="balance" type="xsd:double"/>
+     <element name="currency" nillable="true" type="xsd:string"/>
+     <element name="name" nillable="true" type="xsd:string"/>
+     <element name="rib" nillable="true" type="xsd:long"/>
+    </sequence>
+   </complexType>
+   <element name="generateRIB">
+    <complexType/>
+   </element>
+   <element name="generateRIBResponse">
+    <complexType>
+     <sequence>
+      <element name="generateRIBReturn" type="xsd:long"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="virement">
+    <complexType>
+     <sequence>
+      <element name="fromRib" type="xsd:long"/>
+      <element name="toRib" type="xsd:long"/>
+      <element name="amount" type="xsd:double"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="virementResponse">
+    <complexType/>
+   </element>
+   <element name="getBalance">
+    <complexType>
+     <sequence>
+      <element name="rib" type="xsd:long"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getBalanceResponse">
+    <complexType>
+     <sequence>
+      <element name="getBalanceReturn" type="xsd:double"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="currencyConversion">
+    <complexType>
+     <sequence>
+      <element name="amount" type="xsd:double"/>
+      <element name="from" type="xsd:string"/>
+      <element name="to" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="currencyConversionResponse">
+    <complexType>
+     <sequence>
+      <element name="currencyConversionReturn" type="xsd:double"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="newAccount">
+    <complexType>
+     <sequence>
+      <element name="name" type="xsd:string"/>
+      <element name="balance" type="xsd:double"/>
+      <element name="currency" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="newAccountResponse">
+    <complexType/>
+   </element>
+   <element name="printCustomers">
+    <complexType/>
+   </element>
+   <element name="printCustomersResponse">
+    <complexType/>
+   </element>
+   <element name="retrieveCustomerByName">
+    <complexType>
+     <sequence>
+      <element name="name" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="retrieveCustomerByNameResponse">
+    <complexType>
+     <sequence>
+      <element name="retrieveCustomerByNameReturn" type="impl:Customer"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="newAccountResponse">
+
+      <wsdl:part element="impl:newAccountResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="printCustomersResponse">
+
+      <wsdl:part element="impl:printCustomersResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getBalanceResponse">
+
+      <wsdl:part element="impl:getBalanceResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="currencyConversionRequest">
+
+      <wsdl:part element="impl:currencyConversion" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getCustomersResponse">
+
+      <wsdl:part element="impl:getCustomersResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="virementRequest">
+
+      <wsdl:part element="impl:virement" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="virementResponse">
+
+      <wsdl:part element="impl:virementResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="generateRIBResponse">
+
+      <wsdl:part element="impl:generateRIBResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getBalanceRequest">
+
+      <wsdl:part element="impl:getBalance" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="retrieveCustomerByNameResponse">
+
+      <wsdl:part element="impl:retrieveCustomerByNameResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="retrieveCustomerByNameRequest">
+
+      <wsdl:part element="impl:retrieveCustomerByName" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="newAccountRequest">
+
+      <wsdl:part element="impl:newAccount" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="generateRIBRequest">
+
+      <wsdl:part element="impl:generateRIB" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getCustomersRequest">
+
+      <wsdl:part element="impl:getCustomers" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="currencyConversionResponse">
+
+      <wsdl:part element="impl:currencyConversionResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="printCustomersRequest">
+
+      <wsdl:part element="impl:printCustomers" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="Bank">
+
+      <wsdl:operation name="getCustomers">
+
+         <wsdl:input message="impl:getCustomersRequest" name="getCustomersRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getCustomersResponse" name="getCustomersResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="generateRIB">
+
+         <wsdl:input message="impl:generateRIBRequest" name="generateRIBRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:generateRIBResponse" name="generateRIBResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="virement">
+
+         <wsdl:input message="impl:virementRequest" name="virementRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:virementResponse" name="virementResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getBalance">
+
+         <wsdl:input message="impl:getBalanceRequest" name="getBalanceRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getBalanceResponse" name="getBalanceResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="currencyConversion">
+
+         <wsdl:input message="impl:currencyConversionRequest" name="currencyConversionRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:currencyConversionResponse" name="currencyConversionResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="newAccount">
+
+         <wsdl:input message="impl:newAccountRequest" name="newAccountRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:newAccountResponse" name="newAccountResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="printCustomers">
+
+         <wsdl:input message="impl:printCustomersRequest" name="printCustomersRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:printCustomersResponse" name="printCustomersResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="retrieveCustomerByName">
+
+         <wsdl:input message="impl:retrieveCustomerByNameRequest" name="retrieveCustomerByNameRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:retrieveCustomerByNameResponse" name="retrieveCustomerByNameResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="BankSoapBinding" type="impl:Bank">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getCustomers">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getCustomersRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getCustomersResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="generateRIB">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="generateRIBRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="generateRIBResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="virement">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="virementRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="virementResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getBalance">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getBalanceRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getBalanceResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="currencyConversion">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="currencyConversionRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="currencyConversionResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="newAccount">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="newAccountRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="newAccountResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="printCustomers">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="printCustomersRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="printCustomersResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="retrieveCustomerByName">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="retrieveCustomerByNameRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="retrieveCustomerByNameResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="BankService">
+
+      <wsdl:port binding="impl:BankSoapBinding" name="Bank">
+
+         <wsdlsoap:address location="http://localhost:8082/GustaveBankService/services/Bank"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
